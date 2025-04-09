@@ -1,0 +1,326 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Windows 9</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="main.js"></script>
+  <script type="module" src="window-manager.js"></script>
+</head>
+<body>
+  <div id="setup-wizard" style="display: none;">
+    <div class="setup-content">
+      <div class="setup-header">
+        <img src="Windows-Logo-PNG-Image-File-3323715814.png" alt="Windows Logo" class="setup-logo">
+        <h2>Windows 9</h2>
+      </div>
+      <div class="setup-steps">
+        <div class="setup-step active" data-step="1">
+          <h3>Let's set up Windows 9</h3>
+          <p>Choose how you want to start:</p>
+          <div class="setup-options">
+            <div class="setup-option" data-type="new">
+              <h4>Set up as new</h4>
+              <p>Start fresh with a new installation of Windows 9</p>
+            </div>
+            <div class="setup-option" data-type="recover">
+              <h4>Recover Windows 9</h4>
+              <p>Restore from a backup or fix problems with your current installation</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="setup-step" data-step="2">
+          <h3>Choose your edition</h3>
+          <div class="edition-options">
+            <div class="edition-option" data-edition="home">
+              <h4>Windows 9 Home</h4>
+              <p>Perfect for home users and everyday computing</p>
+            </div>
+            <div class="edition-option" data-edition="pro">
+              <h4>Windows 9 Pro</h4>
+              <p>Advanced features for power users and professionals</p>
+            </div>
+            <div class="edition-option" data-edition="enterprise">
+              <h4>Windows 9 Enterprise</h4>
+              <p>Built for organizations with advanced management needs</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="setup-step" data-step="3">
+          <h3>Create your profile</h3>
+          <div class="form-group">
+            <label for="setup-username">Choose a username:</label>
+            <input type="text" id="setup-username" maxlength="20" placeholder="Enter your name">
+          </div>
+          <div class="profile-pictures">
+            <h4>Select a profile picture:</h4>
+            <div class="profile-picture-grid">
+              <div class="profile-picture-option selected" data-img="user-200-2131244741.png">
+                <img src="user-200-2131244741.png" alt="Profile 1">
+              </div>
+              <div class="profile-picture-option" data-img="windows-8-user-icon_71039.png">
+                <img src="windows-8-user-icon_71039.png" alt="Profile 2">
+              </div>
+              <div class="profile-picture-option" data-img="windows-8-user-account_71052.jpg">
+                <img src="windows-8-user-account_71052.jpg" alt="Profile 3">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="setup-step" data-step="4">
+          <h3>Privacy Settings</h3>
+          <div class="privacy-options-container">
+            <div class="privacy-option">
+              <label>
+                <input type="checkbox" checked>
+                Allow Windows to personalize your experience
+              </label>
+              <div class="description">
+                Windows will use your activity to customize recommendations and content
+              </div>
+            </div>
+            <div class="privacy-option">
+              <label>
+                <input type="checkbox" checked>
+                Send diagnostic data to Microsoft
+              </label>
+              <div class="description">
+                This helps us improve Windows and fix issues
+              </div>
+            </div>
+            <div class="privacy-option">
+              <label>
+                <input type="checkbox" checked>
+                Enable location services
+              </label>
+              <div class="description">
+                Apps can access your location when you allow them to
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="setup-step" data-step="5">
+          <h3>Windows is getting ready...</h3>
+          <div class="installation-progress">
+            <div class="metro-spinner"></div>
+            <div class="installation-text">Finalizing your setup...</div>
+          </div>
+        </div>
+
+        <div class="setup-step" data-step="recovery">
+          <h3>Recovery Options</h3>
+          <div class="recovery-options">
+            <div class="recovery-option">
+              <h4>Reset Windows</h4>
+              <p>Keep your files but remove apps and settings</p>
+              <div class="description">Your files and data will be preserved, but installed apps will be removed</div>
+              <button>Reset Windows</button>
+            </div>
+            <div class="recovery-option">
+              <h4>Fresh Start</h4>
+              <p>Remove everything and reinstall Windows</p>
+              <div class="description">All files, apps, and settings will be removed</div>
+              <button>Start Fresh</button>
+            </div>
+            <div class="recovery-option">
+              <h4>System Repair</h4>
+              <p>Fix Windows without affecting your files</p>
+              <div class="description">Attempts to repair Windows while preserving your data</div>
+              <button>Repair System</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="setup-controls">
+        <button id="setup-back" style="display: none;">Back</button>
+        <button id="setup-next">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="startup-screen">
+    <div class="startup-logo">
+      <svg viewBox="0 0 88 88">
+        <path fill="#fff" d="M0,12.402,35.687,8.448,35.7,42.269,0.017,42.425Zm35.67,33.529-0.011,33.826L0,75.597V45.905ZM40.814,8.172,87.314,2V41.881L40.814,41.965Zm46.5,37.767L87.3,85.789,40.814,79.631V45.905Z"/>
+      </svg>
+    </div>
+    <div class="loading-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div id="login-screen" style="display: none;">
+    <div class="login-container">
+      <div class="login-logo" style="margin-bottom: 30px;">
+        <svg viewBox="0 0 88 88" width="60" height="60" style="fill: white;">
+          <path d="M0,12.402,35.687,8.448,35.7,42.269,0.017,42.425Zm35.67,33.529-0.011,33.826L0,75.597V45.905ZM40.814,8.172,87.314,2V41.881L40.814,41.965Zm46.5,37.767L87.3,85.789,40.814,79.631V45.905Z"/>
+        </svg>
+      </div>
+      <div class="login-avatar">
+        <!-- Will be populated by JavaScript -->
+      </div>
+      <div class="login-username">User</div>
+      <form id="login-form">
+        <input 
+          type="password" 
+          id="password-input" 
+          placeholder="Enter password" 
+          required 
+          autocomplete="off"
+        >
+        <button type="submit" id="login-button">Sign in</button>
+        <div class="login-loader">
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="desktop" style="display: block;">
+    <!-- Desktop Icons -->
+    <div class="desktop-icons">
+      <div class="desktop-icon" data-program="computer">
+        <img src="my-computer-icon-download_74052-2765179078.png" alt="This PC" style="width: 48px; height: 48px;">
+        <span>This PC</span>
+      </div>
+      <div class="desktop-icon" data-program="recycle">
+        <img src="imageres_55.ico" alt="Recycle Bin" style="width: 48px; height: 48px;">
+        <span>Recycle Bin</span>
+      </div>
+      <div class="desktop-icon" data-program="marketplace">
+        <img src="explorer_259.ico" alt="Microsoft Store" style="width: 48px; height: 48px;">
+        <span>Microsoft Store</span>
+      </div>
+      <div class="desktop-icon" data-program="ie">
+        <img src="ie-icon-10-1227051480.png" alt="Internet Explorer" style="width: 48px; height: 48px;">
+        <span>Internet Explorer</span>
+      </div>
+      <div class="desktop-icon" data-program="settings">
+        <img src="shell32_16772.ico" alt="Settings" style="width: 48px; height: 48px;">
+        <span>Settings</span>
+      </div>
+      <div class="desktop-icon" data-program="control">
+        <img src="powercpl_514.ico" alt="Control Panel" style="width: 48px; height: 48px;">
+        <span>Control Panel</span>
+      </div>
+      <div class="desktop-icon" data-program="clippy">
+        <img src="Clippy.png" alt="Clippy" style="width: 48px; height: 48px;">
+        <span>Clippy</span>
+      </div>
+    </div>
+
+    <!-- Windows Container -->
+    <div id="windows-container"></div>
+
+    <div id="taskbar">
+      <button id="start-btn">
+        <svg class="windows-logo" viewBox="0 0 88 88">
+          <path d="M0,12.402,35.687,8.448,35.7,42.269,0.017,42.425Zm35.67,33.529-0.011,33.826L0,75.597V45.905ZM40.814,8.172,87.314,2V41.881L40.814,41.965Zm46.5,37.767L87.3,85.789,40.814,79.631V45.905Z"/>
+        </svg>
+      </button>
+      <div id="taskbar-programs"></div>
+      <div id="system-tray">
+        <div class="tray-icon" title="Connected to Network">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,7L6,4L7,4.9L4,8L7,11L6,12L3,9V7M21,17L18,20L17,19.1L20,16L17,13L18.1,12L21,15V17M11,21L8.9,18.9L10,17.8L13,20.8L16,17.8L17,18.8L14,21.8L13.1,21L11,21Z"/>
+          </svg>
+        </div>
+        <div class="tray-icon" title="Volume: 50%">
+          <svg viewBox="0 0 24 24">
+            <path d="M13,3L16.3,6.3L13.7,8.9L16.9,12.1L14.1,14.9L11,11.8L8,14.8L7,14L10,11L7,8L9.8,5.2L13,8.4L15.7,5.7L13,3M3,7L6,4L7,4.9L4,8L7,11L6,12L3,9V7M21,17L18,20L17,19.1L20,16L17,13L18.1,12L21,15V17M11,21L8.9,18.9L10,17.8L13,20.8L16,17.8L17,18.8L14,21.8L13.1,21L11,21Z"/>
+          </svg>
+        </div>
+        <div class="tray-icon" title="Battery: 85%">
+          <svg viewBox="0 0 24 24">
+            <path d="M16,20H4V6H16M16.67,4H15V2H9V4H7.33A1.33,1.33 0 0,0 6,5.33V20.67C6,21.4 6.6,22 7.33,22H16.67A1.33,1.33 0 0,0 18,20.67V5.33C18,4.6 17.4,4 16.67,4Z"/>
+          </svg>
+          85%
+        </div>
+        <span id="clock"></span>
+      </div>
+    </div>
+
+    <div id="start-menu" class="hidden">
+      <div class="start-menu-user">
+        <div class="user-avatar">
+        </div>
+        <div class="user-name">User</div>
+      </div>
+      <div class="start-menu-search">
+        <input type="text" id="start-menu-search" placeholder="Search programs and files...">
+      </div>
+      <div class="start-menu-content">
+        <div class="start-menu-left">
+          <ul class="program-list">
+            <li class="program-item" data-program="control">
+              <img src="powercpl_514.ico" alt="Control Panel" style="width: 24px; height: 24px;">
+              Control Panel
+            </li>
+            <li class="program-item" data-program="security">
+              <img src="shell32_16772.ico" alt="Microsoft Security" style="width: 24px; height: 24px;">
+              Microsoft Security
+            </li>
+            <li class="program-item" data-program="music">
+              <img src="powercfg_202.ico" alt="Music Player" style="width: 24px; height: 24px;">
+              Music Player
+            </li>
+            <li class="program-item" data-program="notepad">
+              <img src="imageres_54.ico" alt="Notepad" style="width: 24px; height: 24px;">
+              Notepad
+            </li>
+            <li class="program-item" data-program="run">
+              <img src="imageres_80.ico" alt="Run" style="width: 24px; height: 24px;">
+              Run
+            </li>
+            <li class="program-item" data-program="winver">
+              <img src="windows-9-3827875304.png" alt="About Windows" style="width: 24px; height: 24px;">
+              About Windows
+            </li>
+            <li class="program-item" data-program="spinningcat">
+              <img src="spinning-cat.gif" alt="Spinning Cat" style="width: 24px; height: 24px;">
+              Spinning Cat
+            </li>
+            <li class="program-item" data-program="documents">
+              <img src="imageres_87.ico" alt="My Documents" style="width: 24px; height: 24px;">
+              My Documents
+            </li>
+            <li class="program-item" data-program="minesweeper">
+              <img src="Minesweeper_icon.png" alt="Minesweeper" style="width: 24px; height: 24px;">
+              Minesweeper
+            </li>
+          </ul>
+        </div>
+        <div class="start-menu-right">
+          <div class="program-item">
+            <img src="windows-7-orb-icon-by-skyangels-on-deviantart-26-3047874742.png" alt="Documents" style="width: 24px; height: 24px;">
+            Documents
+          </div>
+          <div class="program-item">
+            <img src="windows-7-orb-icon-by-skyangels-on-deviantart-26-3047874742.png" alt="Pictures" style="width: 24px; height: 24px;">
+            Pictures
+          </div>
+        </div>
+      </div>
+      <div class="start-menu-footer">
+        <button id="power-btn">
+          <svg class="power-icon" viewBox="0 0 24 24">
+            <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/>
+          </svg>
+          Power
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
